@@ -31,8 +31,15 @@ current_player = 'X'
 while True:
     os.system('clear')
     game.display()
-    row = int(input('Введите строку (1, 2, 3): ')) - 1
-    col = int(input('Веедите столбец (1, 2, 3): ')) - 1
+    try:
+        row = int(input('Введите строку (1, 2, 3): ')) - 1
+        col = int(input('Веедите столбец (1, 2, 3): ')) - 1
+        if not (0 <= row <= 2 and 0 <= col <= 2):
+            print('Ошибка! Вводите числа от 1 до 3.')
+            continue
+    except ValueError:
+        print('Ошибка! Нужно вводить только цифры. Попробуйте еще раз.')
+        continue
     if game.board[row][col] == '_':
         game.make_move(row, col, current_player)
         print('\nХод принят!')
@@ -57,3 +64,4 @@ while True:
         game.display()
         print('Ничья! Свободных клеток больше нет.')
         break
+
