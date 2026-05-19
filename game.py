@@ -44,7 +44,7 @@ while True:
         game.make_move(row, col, current_player)
         print('\nХод принят!')
         if current_player == 'X':
-            current_player = '0'
+            current_player = 'O'
         else:
             current_player = 'X'
     else:
